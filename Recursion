@@ -1,0 +1,43 @@
+Question 1 Sum of Numbers in an Array:-
+Send Feedback
+Given an array of length N, you need to find and return the sum of all elements of the array.
+Do this recursively.
+// Code
+public class Solution {
+
+	public static int sum(int input[]) {
+        int size = input.length-1;
+		int out =  Sum(input,size);
+		return out;
+	}
+    public static int Sum(int arr[],int size){
+        if(size<0){
+            return 0;
+        }
+        int sum = Sum(arr,size-1) + arr[size];
+        
+        
+        return sum;
+    }
+    
+}
+
+Question2:-
+Sum of Digits
+Send Feedback
+Write a recursive function that returns the sum of the digits of a given integer.
+
+
+public class solution {
+
+	public static int sumOfDigits(int no){
+	   int sum = 0;
+        while(no!=0){
+            int rem = no%10;
+            sum = sum+rem;
+            no = no/10;
+        }
+        
+       return sum;
+	}
+}
