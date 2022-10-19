@@ -53,3 +53,57 @@ public class Solution {
       }
 
 }
+
+
+Question 2:-
+2 Sum in sorted array
+Send Feedback
+Given an array ‘A’ of size ‘N’, sorted in non-decreasing order. Return the pair of two distinct indices whose value adds up to the given ‘target’.
+The given array is 0 indexed. So returned indices are in the range [0, N-1], both inclusive. If there are multiple answers, you can return any.
+Sample Input 1 :
+2
+5 8
+1 2 3 4 5
+4 4
+2 2 4 5
+Sample Output 1 :
+2 4
+0 1
+
+
+solution:-
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int[] twoSum(int arr[], int x){
+        int ans[] = new int[2];
+        int n = arr.length;
+        int p1 = 0,p2 = n-1;
+        int sum = 0;
+        while(p1<p2){
+            sum = arr[p1]+arr[p2];
+            if(sum==x){
+               
+        ans[0] = p1;
+        ans[1] = p2;
+        return ans;
+            }else if(sum<x){
+                p1++;
+                sum = 0;
+            }else{
+                p2--;
+                sum=0;
+            }
+            
+        }
+        return ans;
+    }
+
+}
+
+
+
+
+
+
+
