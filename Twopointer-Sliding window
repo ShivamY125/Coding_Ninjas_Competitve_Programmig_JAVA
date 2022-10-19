@@ -1,0 +1,55 @@
+Max sum of k consecutive elements
+Send Feedback
+You are given an array of ‘N’ integers. You have to find the maximum sum over all subarrays of size ‘K’.
+
+
+public class Solution {
+    public static int maxOfK(int n, int k, int arr[]) {
+        // naive aproach:- O(n*n)
+        // int max = -1;
+        // for(int i=0;i<n-1;i++){
+        //     int sum=0;
+        //     if(k>=n){
+        //         for(int m=0;m<n;m++){
+        //             sum = sum+arr[m];
+        //         }
+        //         return sum;
+        //     }else{
+        //     for(int j=i;j<i+k;j++){
+        //         sum = sum +arr[j];
+        //     }
+        //     if(sum>max){
+        //         max = sum;
+        //     }
+        //     }
+        // }
+        // return max;
+        
+        
+//          Sliding window approach:-
+        
+        int max = Integer.MIN_VALUE;
+        int i=0,sum=0;
+        
+        while(i<k-1){
+            sum = sum+arr[i];
+            i++;
+        }
+        for(i = k-1;i<n;i++){
+            if(i==k-1){
+                sum = sum+arr[i];
+            }else{
+                
+                sum = sum+arr[i]-arr[i-k];
+            }
+            if(sum>max){
+                max = sum;
+            }
+            
+        }
+        
+        
+        return max;
+      }
+
+}
